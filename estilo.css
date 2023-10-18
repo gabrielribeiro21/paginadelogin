@@ -54,6 +54,12 @@ svg {
     color: #001219;
 }
 
+input::placeholder {
+    color: #001219;
+    font-family: Courier, monospace;
+    font-size: 16px;
+}
+
 .formulario button {
     padding: 5px 30px;
     font-size: 20px;
