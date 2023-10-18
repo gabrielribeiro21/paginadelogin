@@ -1,12 +1,24 @@
 const botaoLogin = document.querySelector('button');
 const inputs = document.querySelectorAll('input');
-
+const form = document.querySelector('#acesso')
 
 function previnirPadrao(event) {
     event.preventDefault();
 }
 
-botaoLogin.addEventListener('click', previnirPadrao);
+function capiturandoDados(event) {
+    event.preventDefault();
+
+    const name = document.querySelector('#name');
+    const email = document.querySelector('#email');
+    const senha = document.querySelector('#senha');
+
+    console.log(name.value)
+    console.log(email.value)
+    console.log(senha.value)
+}
+
+form.addEventListener('change', capiturandoDados)
 
 inputs.forEach((input) => {
     input.addEventListener('change', () => {
@@ -15,9 +27,10 @@ inputs.forEach((input) => {
         } else {
             input.classList.toggle("sem-dados");
             input.classList.remove("com-dados");
-
-            const mensagem = document.querySelector('.mensagem');
-            mensagem.textContent = "Por favor, preencha os campos.";
+            const mensagem = document.querySelector('.erro');
+            mensagem.textContent = "Preencha o campo corretamente.";
         }
     })
 })
+
+botaoLogin.addEventListener('click', previnirPadrao);
